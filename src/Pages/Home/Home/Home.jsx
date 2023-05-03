@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import Login from '../../Login/Login';
 import Baner from '../../Baner/Baner';
+import Recepis from '../../Recepis/Recepis';
+import './Home.css'
 
 const Home = () => {
     const [recipe ,setRecipi]=useState([])
@@ -12,14 +13,18 @@ const Home = () => {
         .then(res => res.json())
         .then(data =>setRecipi(data))
     },[])
+
     return (
         <div>
             <Baner></Baner>
+            <div className='recipi-card'>
         {
-            recipe.map(reci =><h1 key={reci.id}>{reci.name}</h1>)
+            recipe.map(reci =><Recepis  key={reci.id} reci={reci}>
+            </Recepis>)
         }
     
             
+        </div>
         </div>
     );
 };
