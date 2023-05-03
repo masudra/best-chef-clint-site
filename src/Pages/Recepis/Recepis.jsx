@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import './Recepis.css'
+import { Link } from 'react-router-dom';
 
 const Recepis = ({reci}) => {
     const {chef_name,chef_photo,recipe_amaunt,experience,like,}=reci
@@ -14,7 +15,8 @@ const Recepis = ({reci}) => {
         <Card.Text>Experience: {experience}</Card.Text>
         <Card.Text>Number Of rec: {recipe_amaunt}</Card.Text>
         <Card.Text>Like: {like}</Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Link to={`/recepis/${reci?.id}`}><Button variant="primary">View Recipes</Button></Link>
+        
       </Card.Body>
     </Card>
         

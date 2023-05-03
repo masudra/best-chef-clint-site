@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Blog from "../Pages/Blog/Blog";
+import RecipeLayout from "../Layout/recipeLayout";
+import RecepiDetels from "../Pages/RecepiDetels/RecepiDetels";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +30,21 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             }
         ]
+    },
+    {
+        path:'recepis',
+        element: <RecipeLayout></RecipeLayout>,
+        children:[
+            {
+                path:'/recepis',
+                element:<Home></Home>,
+            },
+            {
+                path:':id',
+                element: <RecepiDetels></RecepiDetels>
+            }
+        ]
+
     }
 ])
 
