@@ -1,0 +1,13 @@
+.about-chef-img{
+    height: 400px;
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.recepi-detels-conteinar{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+span{
+    font-weight:600;
+}

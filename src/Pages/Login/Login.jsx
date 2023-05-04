@@ -20,7 +20,7 @@ const Login = () => {
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label=" Accept Privacy Policy" />
+        <Form.Check type="checkbox" label=" Accept Privacy Policy" required />
       </Form.Group>
       <p>You dont have acount register Now<Link to='/register'> Register</Link><br/></p>
       

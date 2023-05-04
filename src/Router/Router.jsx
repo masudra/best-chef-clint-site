@@ -42,9 +42,15 @@ const router = createBrowserRouter([
                 element:<Home></Home>,
             },
             {
-                path:':id',
-                element: <RecepiDetels></RecepiDetels>
+                path:':Id',
+                element: <RecepiDetels></RecepiDetels>,
+                loader:async({params})=> {
+                    const res =await fetch(`http://localhost:5000/recipi`)
+                    const data =await res.json()
+                    const recipisss =data.find(recipi=>recipi.id==params.Id)
+                    return recipisss
             }
+        }
         ]
 
     }
