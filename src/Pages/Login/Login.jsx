@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContex } from '../../Providers/AuthProvider';
 
 const Login = () => {
+  const{loginUser}=useContext(AuthContex)
+
+  const handelLogin =event=>{
+    event.preventDefault();
+    const form =event.target;
+    const email =form.email.value;
+    const password =form.password.value;
+    console.log(email,password)
+    loginUser(email,password)
+    .then(rusult=>{
+      const loguser =rusult.user
+      console.log(loguser)
+      form.reset('')
+    })
+    .catch(error=>{
+      alert(error.message)
+    })
+
+
+  }
     return (
         <div>
             <Container className='w-25 mx-auto mt-5'>
-            <Form>
+            <Form onSubmit={handelLogin}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control type="email" name='email' placeholder="Enter email" />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -17,7 +38,7 @@ const Login = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control type="password" name='password' placeholder="Password" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label=" Accept Privacy Policy" required />

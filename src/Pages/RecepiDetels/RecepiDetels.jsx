@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import './RecepiDetels.css'
+import { Button } from 'react-bootstrap';
 
 const RecepiDetels = () => {
     const recipe =useLoaderData()
@@ -29,16 +30,7 @@ const RecepiDetels = () => {
                 <p><span>Rating: </span>{ rating}</p>
                 <p><span>Three Recepi Name: </span>{recipe_3}</p>
 
-
-
-                {/* <p>Recipe Name: { recipe_details[0].recipe_name}</p>
-                <p>ingredients: { recipe_details[0].ingredients.map(mr=><p key={mr.id}>{mr},</p>)}</p>
-                <p>instructions
-: { recipe_details[0].instructions
-.map(mr=><p key={mr.id}>{mr},</p>)}</p> */}
-
-
-           <button>Favorite</button>
+                <Button variant="primary">Favorite</Button>
             </div>
             
         </div>
