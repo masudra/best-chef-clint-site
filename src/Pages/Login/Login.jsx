@@ -22,7 +22,7 @@ const Login = () => {
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label=" Accept Privacy Policy" />
       </Form.Group>
-      <p>You dont have acount register Now<Link to='/register'>Register</Link><br/></p>
+      <p>You dont have acount register Now<Link to='/register'> Register</Link><br/></p>
       
       <Button variant="primary" type="submit">Login</Button>
     </Form>

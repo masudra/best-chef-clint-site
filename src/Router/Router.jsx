@@ -6,11 +6,13 @@ import Register from "../Pages/Register/Register";
 import Blog from "../Pages/Blog/Blog";
 import RecipeLayout from "../Layout/recipeLayout";
 import RecepiDetels from "../Pages/RecepiDetels/RecepiDetels";
+import ErrorPage from "../Pages/ErrorPage/Errorpage";
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path:'/',
