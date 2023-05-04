@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -19,11 +20,11 @@ const Login = () => {
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
+        <Form.Check type="checkbox" label=" Accept Privacy Policy" />
       </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
+      <p>You dont have acount register Now<Link to='/register'>Register</Link><br/></p>
+      
+      <Button variant="primary" type="submit">Login</Button>
     </Form>
             </Container>
             
