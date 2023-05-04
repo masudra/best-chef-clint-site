@@ -7,6 +7,7 @@ import Blog from "../Pages/Blog/Blog";
 import RecipeLayout from "../Layout/recipeLayout";
 import RecepiDetels from "../Pages/RecepiDetels/RecepiDetels";
 import ErrorPage from "../Pages/ErrorPage/Errorpage";
+import PrivatRoute from "./PrivatRoute";
 
 const router = createBrowserRouter([
     {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
             },
             {
                 path:':Id',
-                element: <RecepiDetels></RecepiDetels>,
+                element:<PrivatRoute><RecepiDetels></RecepiDetels></PrivatRoute>,
                 loader:async({params})=> {
                     const res =await fetch(`http://localhost:5000/recipi`)
                     const data =await res.json()

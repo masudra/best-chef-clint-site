@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import logo from '../../../assets/1.png'
 import './Header.css'
 import { Link } from 'react-router-dom';
+import { AuthContex } from '../../../Providers/AuthProvider';
 
 const Header = () => {
+  const {user,logOut}=useContext(AuthContex)
 
-  const handelLoginBtn =()=>{
-    
+  const handelLogOutbtn =()=>{
+    logOut()
+    .then(()=>{})
+    .catch(error=>{
+      alert(error.message)
+    })
   }
+
+  
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -21,9 +29,16 @@ const Header = () => {
             <Nav.Link href="/blog">Blog</Nav.Link>
           </Nav>
           <Nav>
-            <img className='pofile-img' src={logo} alt="" />
+            
             <Nav.Link eventKey={2} >
-            <Button onClick={handelLoginBtn} variant="secondary">Login</Button>
+            
+            {
+              user?<>
+              <span>{user.email}</span>
+              <img className='pofile-img' src={logo} alt="" />
+              <Button onClick={handelLogOutbtn} variant="secondary">Log Out</Button>
+              </>:<Link to='/login'><Button variant="secondary">Login</Button></Link>
+            }
 
             </Nav.Link>
           </Nav>
