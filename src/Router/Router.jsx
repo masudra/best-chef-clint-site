@@ -46,7 +46,7 @@ const router = createBrowserRouter([
                 path:':Id',
                 element:<PrivatRoute><RecepiDetels></RecepiDetels></PrivatRoute>,
                 loader:async({params})=> {
-                    const res =await fetch(`http://localhost:5000/recipi`)
+                    const res =await fetch(`https://best-chef-server-side-masudra.vercel.app/recipi`)
                     const data =await res.json()
                     const recipisss =data.find(recipi=>recipi.id==params.Id)
                     return recipisss

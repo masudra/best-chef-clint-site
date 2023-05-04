@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../Providers/AuthProvider';
 
 const Login = () => {
   const{loginUser}=useContext(AuthContex)
+  const loction =useLocation()
+  const naveget =useNavigate()
 
   const handelLogin =event=>{
     event.preventDefault();
@@ -15,6 +17,7 @@ const Login = () => {
     loginUser(email,password)
     .then(rusult=>{
       const loguser =rusult.user
+      naveget(`/recepis`)
       console.log(loguser)
       form.reset('')
     })

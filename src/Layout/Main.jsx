@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Pages/Sheard/Header/Header';
 import { Outlet } from 'react-router-dom';
-import Baner from '../Pages/Baner/Baner';
+import Footer from '../Pages/Sheard/Footer/Footer';
 
 
 const Main = () => {
@@ -9,6 +9,7 @@ const Main = () => {
         <div>
             <Header></Header>
             <Outlet></Outlet>
+            <Footer></Footer>
             
         </div>
     );

@@ -9,7 +9,7 @@ const Home = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:5000/recipi')
+        fetch('https://best-chef-server-side-masudra.vercel.app/recipi')
         .then(res => res.json())
         .then(data =>setRecipi(data))
     },[])

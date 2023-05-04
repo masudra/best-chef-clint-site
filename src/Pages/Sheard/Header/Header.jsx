@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import logo from '../../../assets/1.png'
+// import logo from '../../../assets/1.png'
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { AuthContex } from '../../../Providers/AuthProvider';
@@ -34,8 +34,8 @@ const Header = () => {
             
             {
               user?<>
-              <span>{user.email}</span>
-              <img className='pofile-img' src={logo} alt="" />
+              <span>{user.name}</span>
+              <img className='pofile-img' src={user?.photoURL} alt="" />
               <Button onClick={handelLogOutbtn} variant="secondary">Log Out</Button>
               </>:<Link to='/login'><Button variant="secondary">Login</Button></Link>
             }
