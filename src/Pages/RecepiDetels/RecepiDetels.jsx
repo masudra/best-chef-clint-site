@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import './RecepiDetels.css'
 import { Button } from 'react-bootstrap';
 
 const RecepiDetels = () => {
+    const [clickbtn, setClickbtn]=useState(false)
+
+    const btnClick =()=>{
+        setClickbtn(true)
+        alert('Favorite Add')
+
+    }
+
     const recipe =useLoaderData()
-    console.log(recipe)
     const {chef_name,chef_photo,recipe_amaunt,experience,like,description,recipe_details,treating,cooking_method,ingredients,rating,recipe_name,recipe_3}=recipe
     
 
@@ -30,7 +37,7 @@ const RecepiDetels = () => {
                 <p><span>Rating: </span>{ rating}</p>
                 <p><span>Three Recepi Name: </span>{recipe_3}</p>
 
-                <Button variant="primary">Favorite</Button>
+                <Button onClick={btnClick} disabled={clickbtn} variant="primary">Favorite</Button>
             </div>
             
         </div>
