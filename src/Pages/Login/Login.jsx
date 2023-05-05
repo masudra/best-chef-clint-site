@@ -1,16 +1,47 @@
 import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContex } from '../../Providers/AuthProvider';
+import  { AuthContex } from '../../Providers/AuthProvider';
 import { FaGoogle,FaGithub} from 'react-icons/fa';
+import { getAuth, signInWithPopup, GoogleAuthProvider, ProviderId, GithubAuthProvider } from "firebase/auth";
+import app from '../../Firebase/firebase.config';
+
 
 
 const Login = () => {
+// google and github login 
+
+const auth = getAuth(app);
+const  googleProvider =new GoogleAuthProvider();
+const  gitHubProvider =new GithubAuthProvider();
+
+ 
+  const handelGoogle= ()=>{
+    signInWithPopup(auth, googleProvider)
+    .then(result => {
+      const logingGoogle =result.user
+    })
+    .catch(error =>{
+      alert(error.message)
+    })
+  }
+
+  const handelGithub= ()=>{
+    signInWithPopup(auth, gitHubProvider)
+    .then(result => {
+      const logingGithub =result.user
+    })
+    .catch(error =>{
+      alert(error.message)
+    })
+  }
+
+// email password login
   const{loginUser}=useContext(AuthContex)
   const naveget =useNavigate()
   const loction =useLocation()
   // console.log('login page',loction)
-  const from =loction.state.from.pathname
+  const from =loction.state.from.pathname 
 
 
   const handelLogin =event=>{
@@ -53,9 +84,9 @@ const Login = () => {
       
       <Button variant="primary" type="submit">Login</Button>
       <br/>
-      <Button variant="outline-primary mb-2 mt-3"><FaGoogle className='me-2'/>Login With Google</Button>
+      <Button onClick={handelGoogle}  variant="outline-primary mb-2 mt-3"><FaGoogle className='me-2'/>Login With Google</Button>
             <br/>
-      <Button variant="outline-primary"><FaGithub  className='me-2'/>Login With GitHub</Button>
+      <Button onClick={handelGithub} variant="outline-primary"><FaGithub  className='me-2'/>Login With GitHub</Button>
 
     </Form>
             </Container>

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-// import logo from '../../../assets/1.png'
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { AuthContex } from '../../../Providers/AuthProvider';
