@@ -9,7 +9,14 @@ import app from '../../Firebase/firebase.config';
 
 
 const Login = () => {
-// google and github login 
+  
+  
+  const{loginUser}=useContext(AuthContex)
+  const naveget =useNavigate()
+  const loction =useLocation()
+  const from =loction?.state?.from?.pathname  ||'/login'
+  
+  // google and github login
 
 const auth = getAuth(app);
 const  googleProvider =new GoogleAuthProvider();
@@ -20,6 +27,8 @@ const  gitHubProvider =new GithubAuthProvider();
     signInWithPopup(auth, googleProvider)
     .then(result => {
       const logingGoogle =result.user
+      naveget(from,{replace: true})
+
     })
     .catch(error =>{
       alert(error.message)
@@ -30,6 +39,8 @@ const  gitHubProvider =new GithubAuthProvider();
     signInWithPopup(auth, gitHubProvider)
     .then(result => {
       const logingGithub =result.user
+      naveget(from,{replace: true})
+
     })
     .catch(error =>{
       alert(error.message)
@@ -37,24 +48,17 @@ const  gitHubProvider =new GithubAuthProvider();
   }
 
 // email password login
-  const{loginUser}=useContext(AuthContex)
-  const naveget =useNavigate()
-  const loction =useLocation()
-  // console.log('login page',loction)
-  const from =loction?.state?.from?.pathname  ||'/login'
-
+ 
 
   const handelLogin =event=>{
     event.preventDefault();
     const form =event.target;
     const email =form.email.value;
     const password =form.password.value;
-    // console.log(email,password)
     loginUser(email,password)
     .then(rusult=>{
       const loguser =rusult.user
       naveget(from,{replace: true})
-      console.log(loguser)
       form.reset('')
     })
     .catch(error=>{
