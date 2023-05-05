@@ -9,15 +9,21 @@ import app from '../Firebase/firebase.config';
 
 const AuthProvider = ({children}) => {
     const[user,setUser]= useState("")
-    const [loding,setLoding]= useState(false)
+    const [loding,setLoding]= useState(true)
 
     const creatUser=(email,password) =>{
+        setLoding(true)
         return createUserWithEmailAndPassword(auth,email,password)
+    
     }
     const loginUser= (email,password)=>{
+        setLoding(true)
+
         return signInWithEmailAndPassword(auth,email,password)
     }
     const logOut =()=>{
+        setLoding(true)
+
         return signOut(auth)
     }
 

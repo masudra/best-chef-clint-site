@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContex } from '../Providers/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
+import { ProgressBar } from 'react-bootstrap';
 
 const PrivatRoute = ({children}) => {
     const {user,loding}=useContext(AuthContex)

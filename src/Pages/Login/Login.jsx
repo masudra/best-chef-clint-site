@@ -41,7 +41,7 @@ const  gitHubProvider =new GithubAuthProvider();
   const naveget =useNavigate()
   const loction =useLocation()
   // console.log('login page',loction)
-  const from =loction.state.from.pathname 
+  const from =loction?.state?.from?.pathname  ||'/login'
 
 
   const handelLogin =event=>{
